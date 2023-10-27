@@ -1,3 +1,5 @@
+name: Build with Sonar Scan
+
 on:
   workflow_dispatch:
 
