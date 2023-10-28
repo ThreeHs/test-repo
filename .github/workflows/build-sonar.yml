@@ -29,7 +29,7 @@ jobs:
         run: dotnet build --property:SkipNSwag=True
 
       - name: Test with the dotnet CLI
-        run: dotnet test #--settings coverlet.runsettings --logger:trx
+        run: dotnet test --no-build #--settings coverlet.runsettings --logger:trx
         env:
           ASPNETCORE_ENVIRONMENT: Development
 
