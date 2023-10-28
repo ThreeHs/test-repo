@@ -17,13 +17,18 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
+      - name: Upgrade JDK to 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          
       - name: Install dependencies
         run: dotnet restore
 
       - name: Sonarqube Begin
         run: | 
           dotnet tool install --global dotnet-sonarscanner
-          dotnet sonarscanner begin /o:someorg /k:somekey /d:sonar.login=${{ secrets.SONAR_TOKEN }} /d:sonar.host.url=${{ secrets.SONAR_HOST_URL }}
+          dotnet sonarscanner begin /o:someorg /k:somekey /d:sonar.token=${{ secrets.SONAR_TOKEN }} /d:sonar.host.url=${{ secrets.SONAR_HOST_URL }}
 
       - name: Build
         run: dotnet build --property:SkipNSwag=True
