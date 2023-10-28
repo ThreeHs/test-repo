@@ -20,6 +20,7 @@ jobs:
       - name: Upgrade JDK to 17
         uses: actions/setup-java@v3
         with:
+          distribution: microsoft
           java-version: '17'
           
       - name: Install dependencies
